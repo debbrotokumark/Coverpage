@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="pdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
+
+    <style>
+        .maindiv {
+            height: 297mm;
+            width: 210mm;
+            background-color: white;
+           text-align: center;
+
+        }
+
+        img {
+
+            height: 200px;
+
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          
+            
+        }
+
+        .half {
+            flex: 1;
+            border: 2px solid #000;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .submit {
+
+            text-decoration: none;
+            border-bottom: 2px solid rgb(0, 0, 0);
+            display: inline;
+        }
+
+        .dep {
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            margin: 30px 80px 30px 80px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div >
+      
+        <div  class="maindiv" style="align-content: center;"  >
+
+            <div id="invoice">
+            <h1 style="margin-top: 80px;" contenteditable="true">Department of Computer Science and Engineering
+            </h1>
+            <h3 style="margin-bottom: 50px">Bangamata Sheikh Fojilatunnesa Mujib Science & Technology University</h3>
+
+
+            <img src="bsfmstu-logo.png" id="printBtn" alt="">
+            <h2 contenteditable="true" style="text-decoration: underline" ;>LAB REPORT
+            </h2>
+            <div class="dep">
+                <h2 contenteditable="true">Course Name: Basic Electrical Engineering Sessional<br><br>
+                    Course Code: CSE 1212
+                </h2>
+            </div>
+
+            <div style=" display: flex; text-align: left; margin :0px 50px 0px 50px" >
+
+                <div class="half">
+                    <h3 class="submit">
+                        Submitted by: </h3>
+                    <h3 class="name" contenteditable="true">
+                        Debbroto Kumar Karmokar
+                    </h3>
+                    <p class="idsession" contenteditable="true"> ID: 22111113, Session: 2021-22</p>
+                    <p class="department" contenteditable="true">Dept. of Computer Science & Engineering</p>
+                    <p>Bangamata Sheikh Fojilatunnesa
+                        Mujib Science and Technology
+                        University, Jamalpur </p>
+                </div>
+                <div class="half">
+                    <h3 class="submit">
+                        Submitted to : </h3>
+                    <h3 class="name" contenteditable="true">Dr. Mahmudul Alam</h3>
+                    <p class="jobsta" contenteditable="true">Assistant Professor</p>
+                    <p class="department" contenteditable="true">Dept. of Computer Science &
+                        Engineering</p>
+                    <p>Bangamata Sheikh Fojilatunnesa
+                        Mujib Science and Technology
+                        University, Jamalpur </p>
+
+
+                </div>
+
+            </div>
+
+            <h3 style="text-align: left; margin-left: 75px;">Submission Date: </h3>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('printBtn').addEventListener('click', () => { window.print() });
+        // Prints area to which class was assigned only
+        </script>
+</body>
+
+</html>
