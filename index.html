@@ -1,118 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <script src="pdf.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Page</title>
+  <link rel="icon" type="image/x-icon" href="logo.png">
 
-    <style>
-        .maindiv {
-            height: 297mm;
-            width: 210mm;
-            background-color: white;
-           text-align: center;
+  <!-- PDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 
-        }
+  <style>
+    /* Remove default margins for printing */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      background: #f0f0f0;
+    }
+    .maindiv {
+      width: 794px;  /* 210mm at 96 DPI */
+      height: 1123px; /* 297mm at 96 DPI */
+      background-color: white;
+      text-align: center;
+      padding: 0;
+      overflow: hidden; /* Prevent spillover */
+    }
+    img { height: 200px; }
+    .half {
+      flex: 1;
+      border: 2px solid #000;
+      padding: 20px;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .submit {
+      border-bottom: 1px solid rgb(0, 0, 0);
+      display: inline;
+      width: fit-content;   
+   }
+    .dep {
+      border: 3px solid black;
+      margin: 30px 80px;
+      padding: 15px;
+    }
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .submission_date{
+      display: flex;
+      margin-top: 120px;
+    }
+  
+    .dateinput{
+      outline: none;
+      border: none;
+      margin-left: 5px;
+      font-size: 14px;
+      margin-top: 2px;
+      align-items: center;
+    }
+    .dateinput::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+    }
+    .dateinput[type="date"] {
+    -moz-appearance: textfield;
+    }
+.make_pdf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  margin-left: 20px;
+  margin-top: 100px;
+  background: linear-gradient(135deg, #ffffff, #d9fcea); /* White to soft green */
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
 
-        img {
+.make_pdf .btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
 
-            height: 200px;
+.make_pdf .btn:hover {
+  background-color: #45a049;
+}
 
-        }
+.developer_info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          
-            
-        }
+.developer_info a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        .half {
-            flex: 1;
-            border: 2px solid #000;
-            padding: 20px;
-            margin: 20px;
-        }
+.developer_info a:hover {
+  text-decoration: underline;
+}
 
-        .submit {
-
-            text-decoration: none;
-            border-bottom: 2px solid rgb(0, 0, 0);
-            display: inline;
-        }
-
-        .dep {
-            border-width: 3px;
-            border-style: solid;
-            border-color: black;
-            margin: 30px 80px 30px 80px;
-
-        }
-    </style>
-
+    
+  </style>
 </head>
-
 <body>
-    <div >
-      
-        <div  class="maindiv" style="align-content: center;"  >
 
-            <div id="invoice">
-            <h1 style="margin-top: 80px;" contenteditable="true">Department of Computer Science and Engineering
-            </h1>
-            <h3 style="margin-bottom: 50px">Bangamata Sheikh Fojilatunnesa Mujib Science & Technology University</h3>
+  <!-- Buttons -->
 
 
-            <img src="bsfmstu-logo.png" id="printBtn" alt="">
-            <h2 contenteditable="true" style="text-decoration: underline" ;>LAB REPORT
-            </h2>
-            <div class="dep">
-                <h2 contenteditable="true">Course Name: Basic Electrical Engineering Sessional<br><br>
-                    Course Code: CSE 1212
-                </h2>
-            </div>
+  <div class="maindiv" id="invoice">
+    <h2 style="margin-top: 80px; margin-bottom: 10px;" contenteditable="true">
+      Department of Computer Science and Engineering
+    </h2>
+    <h3 contenteditable="true" style="margin-bottom: 50px">Jamalpur Science & Technology University</h3>
+    <img src="logo.png" alt="Logo">
+    <h2 contenteditable="true" style="margin-top: 9px;">LAB REPORT</h2>
 
-            <div style=" display: flex; text-align: left; margin :0px 50px 0px 50px" >
-
-                <div class="half">
-                    <h3 class="submit">
-                        Submitted by: </h3>
-                    <h3 class="name" contenteditable="true">
-                        Debbroto Kumar Karmokar
-                    </h3>
-                    <p class="idsession" contenteditable="true"> ID: 22111113, Session: 2021-22</p>
-                    <p class="department" contenteditable="true">Dept. of Computer Science & Engineering</p>
-                    <p>Bangamata Sheikh Fojilatunnesa
-                        Mujib Science and Technology
-                        University, Jamalpur </p>
-                </div>
-                <div class="half">
-                    <h3 class="submit">
-                        Submitted to : </h3>
-                    <h3 class="name" contenteditable="true">Dr. Mahmudul Alam</h3>
-                    <p class="jobsta" contenteditable="true">Assistant Professor</p>
-                    <p class="department" contenteditable="true">Dept. of Computer Science &
-                        Engineering</p>
-                    <p>Bangamata Sheikh Fojilatunnesa
-                        Mujib Science and Technology
-                        University, Jamalpur </p>
-
-
-                </div>
-
-            </div>
-
-            <h3 style="text-align: left; margin-left: 75px;">Submission Date: </h3>
-        </div>
+    <div class="dep">
+      <h2 contenteditable="true">
+        Course Name: Basic Electrical Engineering Sessional<br><br>
+        Course Code: CSE 1212
+      </h2>
     </div>
-    <script type="text/javascript">
-        document.getElementById('printBtn').addEventListener('click', () => { window.print() });
-        // Prints area to which class was assigned only
-        </script>
-</body>
 
+    
+
+    <div id="box_div" style="display: flex; text-align: left; margin: 70px 50px;">
+      <div class="half">
+        <h3 class="submit">Submitted by :</h3>
+        <h3 class="name" contenteditable="true">Debbroto Kumar Karmokar</h3>
+        <p class="idsession" contenteditable="true">ID: 22111113, Session: 2021-22</p>
+        <p class="department" contenteditable="true">Dept. of Computer Science & Engineering</p>
+        <p contenteditable="true" >Jamalpur Science & Technology University</p>
+      </div>
+      <div class="half">
+        <h3 class="submit">Submitted to :</h3>
+        <h3 class="name" contenteditable="true">Dr. Mahmudul Alam</h3>
+        <p class="jobsta" contenteditable="true">Assistant Professor</p>
+        <p class="department" contenteditable="true">Dept. of Computer Science & Engineering</p>
+        <p contenteditable="true">Jamalpur Science & Technology University</p>
+      </div>
+    </div>
+
+    <div class="submission_date">
+    <h3 style="text-align: left; margin-left: 75px;">Submission Date :</h3>
+      <input type="text" id="submissionDate" class="dateinput">
+  </div>
+  </div>
+ <div class="make_pdf">
+  <button class="btn" id="pdfBtn">Download PDF</button>
+  
+  <div class="developer_info">
+    <p>Developed by: <strong>Debbroto Kumar Karmokar</strong></p>
+    <p>Email: <a href="mailto:debk10@gmail.com">debk10@gmail.com</a></p>
+  </div>
+</div>
+
+<script>
+  const invoice = document.getElementById('invoice');
+
+  // Function to save all editable content to localStorage
+  function saveContent() {
+    const editableElements = invoice.querySelectorAll('[contenteditable="true"]');
+    editableElements.forEach((el, index) => {
+      localStorage.setItem('editable_' + index, el.innerHTML);
+    });
+    localStorage.setItem('submissionDate', document.getElementById('submissionDate').value);
+  }
+
+  // Load saved content on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const editableElements = invoice.querySelectorAll('[contenteditable="true"]');
+    editableElements.forEach((el, index) => {
+      const saved = localStorage.getItem('editable_' + index);
+      if (saved) el.innerHTML = saved;
+    });
+    const savedDate = localStorage.getItem('submissionDate');
+    if (savedDate) {
+      document.getElementById('submissionDate').value = savedDate;
+    } else {
+      // Default today's date
+      const dateInput = document.getElementById('submissionDate');
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const yy = String(today.getFullYear()).slice(-2);
+      dateInput.value = `${dd}-${mm}-${yy}`;
+    }
+  });
+
+  // Save content whenever user edits
+  const editableElements = invoice.querySelectorAll('[contenteditable="true"]');
+  editableElements.forEach(el => {
+    el.addEventListener('input', saveContent);
+  });
+  document.getElementById('submissionDate').addEventListener('input', saveContent);
+
+  // PDF Download
+  document.getElementById('pdfBtn').addEventListener('click', () => {
+    const element = document.getElementById('invoice');
+    const opt = {
+      margin: 0,
+      filename: 'cover_page.pdf',
+      image: { type: 'jpeg', quality: 1 },
+      html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+      jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+  });
+</script>
+
+</body>
 </html>
